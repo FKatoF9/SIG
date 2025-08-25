@@ -7,8 +7,8 @@ public class Zona {
     private double area;
     private String tipoZona;
 
-    // Constructor
-    public Zona(String nombre, String localidad, int poblacion, int numsectocats, boolean zonaRural, double area, String tipoZona) {
+    public Zona(String nombre, String localidad, int poblacion, int numsectocats,
+                boolean zonaRural, double area, String tipoZona) {
         this.nombre = nombre;
         this.localidad = localidad;
         this.poblacion = poblacion;
@@ -18,7 +18,6 @@ public class Zona {
         this.tipoZona = tipoZona;
     }
 
-    // Sobrecarga del método (diferente parámetro)
     public void mostrarZona() {
         System.out.println("Zona: " + nombre + " - Tipo: " + tipoZona);
     }
@@ -32,7 +31,8 @@ public class Zona {
     }
 
     public double densidadPoblacional() {
-        return poblacion / area;
+        if (area == 0) return 0; // Evitar división por cero
+        return (double) poblacion / area;
     }
 
     public boolean esZonaRural() {
